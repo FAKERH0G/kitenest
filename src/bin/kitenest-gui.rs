@@ -75,7 +75,6 @@ fn build_window(application: &adw::Application) {
     app_title.append(&app_icon);
     app_title.append(&app_name);
     header.set_title_widget(Some(&app_title));
-    window.set_titlebar(Some(&header));
 
     let shell = gtk::Box::new(gtk::Orientation::Horizontal, 0);
     shell.add_css_class("kitenest-shell");
@@ -300,7 +299,10 @@ fn build_window(application: &adw::Application) {
     settings_page.append(&settings_status);
     stack.add_named(&settings_page, Some("settings"));
     shell.append(&stack);
-    window.set_content(Some(&shell));
+    let toolbar = adw::ToolbarView::new();
+    toolbar.add_top_bar(&header);
+    toolbar.set_content(Some(&shell));
+    window.set_content(Some(&toolbar));
 
     let output_for_search = discover_output.clone();
     let query_for_search = query.clone();
@@ -424,7 +426,7 @@ fn install_sharp_corner_style() {
     provider.load_from_data(
         "window.kitenest-window, window.kitenest-window * { border-radius: 0; }\n\
          .kitenest-sidebar { background-color: alpha(currentColor, 0.035); border-right: 1px solid alpha(currentColor, 0.12); }\n\
-         .sidebar-button { min-height: 38px; padding: 4px 10px; text-align: left; }\n\
+         .sidebar-button { min-height: 38px; padding: 4px 10px; }\n\
          .sidebar-button:checked { background-color: alpha(@accent_bg_color, 0.18); color: @accent_color; }\n\
          .distro-summary { padding: 10px; background-color: alpha(currentColor, 0.045); }\n\
          .settings-group { padding: 8px 12px; background-color: alpha(currentColor, 0.045); }",
