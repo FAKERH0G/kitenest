@@ -36,7 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          rpm="$(find rpmbuild/RPMS -type f -name 'kitenest-*.rpm' -print -quit)"
+          rpm="$(find rpmbuild/RPMS -type f -name 'kitenest-[0-9]*.rpm' -print -quit)"
           test -n "$rpm"
           gh release create "$GITHUB_REF_NAME" "$rpm" \
             --repo "$GITHUB_REPOSITORY" \
