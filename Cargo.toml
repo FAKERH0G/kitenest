@@ -1,13 +1,13 @@
 [package]
 name = "kitenest"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 description = "A friendly package manager for Fedora-family Linux"
 license = "GPL-3.0-or-later"
 
 [features]
 default = []
-gui = ["dep:gtk4", "dep:libadwaita", "dep:glib"]
+gui = ["dep:gtk4", "dep:libadwaita", "dep:glib", "libadwaita/v1_4"]
 
 [dependencies]
 clap = { version = "4.5", features = ["derive"] }

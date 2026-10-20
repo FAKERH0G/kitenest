@@ -1,5 +1,5 @@
 Name:           kitenest
-Version:        0.1.2
+Version:        0.1.3
 Release:        1%{?dist}
 Summary:        Friendly package manager for Fedora-family Linux
 License:        GPL-3.0-or-later
@@ -43,6 +43,8 @@ install -Dpm0644 data/icons/hicolor/scalable/apps/org.kitenest.PackageManager.sv
 %{_datadir}/icons/hicolor/scalable/apps/org.kitenest.PackageManager.svg
 
 %changelog
+* Tue Oct 20 2026 KiteNest Contributors <kitenest-maintainers@example.invalid> - 0.1.3-1
+- Enable the libadwaita 1.4 API required by the application toolbar
 * Tue Oct 20 2026 KiteNest Contributors <kitenest-maintainers@example.invalid> - 0.1.2-1
 - Fix GTK application window toolbar and startup crash
 * Tue Oct 20 2026 KiteNest Contributors <kitenest-maintainers@example.invalid> - 0.1.1-1
