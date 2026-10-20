@@ -19,6 +19,6 @@ tar -czf "$out/kitenest-$version-vendor.tar.gz" \
     -C "$root" vendor .cargo/config.toml
 tar -czf "$out/kitenest-$version.tar.gz" \
     --exclude=.git --exclude=target --exclude=vendor --exclude=rpmbuild \
-    --transform="s,^${project}$,${project}-${version}," \
+    --transform="s,^${project},${project}-${version}," \
     -C "$(dirname "$root")" "$project"
 printf 'RPM sources prepared in %s\n' "$out"
