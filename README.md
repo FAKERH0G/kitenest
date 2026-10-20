@@ -56,7 +56,7 @@ for immutable systems.
 Install a release RPM with DNF:
 
 ```sh
-sudo dnf install ./kitenest-0.1.0-1.fcXX.x86_64.rpm
+sudo dnf install ./kitenest-0.1.1-1.fc44.x86_64.rpm
 ```
 
 Launch **KiteNest** from the application grid, or use `kitenest` in a
@@ -69,7 +69,7 @@ Prefer Flatpak and AppImage packages inside KiteNest. To install KiteNest
 itself from a downloaded RPM, stage it with rpm-ostree and reboot:
 
 ```sh
-sudo rpm-ostree install-local ./kitenest-0.1.0-1.fcXX.x86_64.rpm
+sudo rpm-ostree install-local ./kitenest-0.1.1-1.fc44.x86_64.rpm
 systemctl reboot
 ```
 
@@ -140,7 +140,7 @@ cargo run --features gui --bin kitenest-gui
 
 The RPM spec builds offline. Prepare an RPM source tree with Cargo's locked
 dependencies vendored, and provide the matching vendor archive as
-`kitenest-0.1.0-vendor.tar.gz` alongside the source tarball:
+`kitenest-0.1.1-vendor.tar.gz` alongside the source tarball:
 
 ```sh
 ./scripts/prepare-rpm-sources.sh
