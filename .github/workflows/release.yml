@@ -1,0 +1,44 @@
+name: Build and publish RPM
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  rpm:
+    runs-on: ubuntu-24.04
+    container: fedora:44
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install RPM build dependencies
+        run: |
+          dnf install --assumeyes \
+            cargo \
+            gh \
+            gtk4-devel \
+            libadwaita-devel \
+            pkgconf-pkg-config \
+            rpm-build \
+            rust \
+            tar
+      - name: Prepare vendored RPM sources
+        run: ./scripts/prepare-rpm-sources.sh
+      - name: Build RPM
+        run: |
+          rpmbuild -ba \
+            --define "_topdir $GITHUB_WORKSPACE/rpmbuild" \
+            packaging/kitenest.spec
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rpm="$(find rpmbuild/RPMS -type f -name 'kitenest-*.rpm' -print -quit)"
+          test -n "$rpm"
+          gh release create "$GITHUB_REF_NAME" "$rpm" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "KiteNest $GITHUB_REF_NAME" \
+            --generate-notes
