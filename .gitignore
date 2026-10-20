@@ -1,0 +1,6 @@
+/target/
+/vendor/
+/AppDir/
+/rpmbuild/
+*.AppImage
+*.rpm

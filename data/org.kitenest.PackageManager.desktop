@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=KiteNest
+Comment=Manage RPM packages, Flatpaks, and AppImages
+Exec=kitenest-gui
+Icon=org.kitenest.PackageManager
+Terminal=false
+Categories=System;PackageManager;
+StartupNotify=true
