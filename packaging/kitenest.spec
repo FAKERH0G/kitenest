@@ -20,9 +20,13 @@ backend with GTK4/libadwaita and command-line frontends.
 %autosetup -n %{name}-%{version} -a 1
 
 %build
+cd %{name}-%{version}
+export CARGO_TARGET_DIR="$PWD/target"
 cargo build --offline --locked --release --all-features
 
 %install
+cd %{name}-%{version}
+export CARGO_TARGET_DIR="$PWD/target"
 install -Dpm0755 target/release/kitenest %{buildroot}%{_bindir}/kitenest
 install -Dpm0755 target/release/kitenest-gui %{buildroot}%{_bindir}/kitenest-gui
 install -Dpm0755 target/release/kitenest-privileged %{buildroot}%{_bindir}/kitenest-privileged
