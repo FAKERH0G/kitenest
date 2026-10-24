@@ -1,6 +1,6 @@
 # KiteNest
 
-<img src="data/icons/hicolor/scalable/apps/org.kitenest.PackageManager.svg" alt="KiteNest app icon" width="88" align="right">
+<img src="data/icons/hicolor/scalable/apps/org.kitenest.PackageManager.svg" alt="KiteNest app icon" width="128" align="right">
 
 KiteNest is a GTK4/libadwaita desktop app and CLI for Fedora-family Linux. It
 brings configured RPM repositories, Flatpak remotes, and locally managed
